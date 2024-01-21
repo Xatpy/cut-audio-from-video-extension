@@ -10,15 +10,18 @@
     "48": "assets/chitulaPng.png",
     "128": "assets/chitulaPng.png"
   },
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "type": "module",
   "action": {
     "default_icon": "assets/chitulaPng.png"
   },
-  "permissions": ["tabs", "http://*/*", "https://*/*"],
+  "permissions": ["tabs", "webNavigation", "http://*/*", "https://*/*"],
   "content_scripts": [
     {
       "matches": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
-      "js": ["src/main.js"]
+      "js": ["src/instagramDownloader.js", "src/main.js"]
     }
   ],
   "web_accessible_resources": [
