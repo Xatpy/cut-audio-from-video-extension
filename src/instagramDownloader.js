@@ -176,3 +176,5 @@ function instagramDownloaderMain() {
   start_DOM_observer(scan);
   start_DOM_loaded(scan);
 }
+
+instagramDownloaderMain();

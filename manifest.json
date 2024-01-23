@@ -1,7 +1,7 @@
 {
   "name": "Cut-audio-from-video extension",
   "manifest_version": 3,
-  "version": "1.0.1",
+  "version": "0.0.2",
   "description": "Send videos to cut-audio-from-video.com",
   "host_permissions": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
   "icons": {
@@ -19,17 +19,18 @@
   "permissions": ["tabs", "webNavigation", "webRequest"],
   "content_scripts": [
     {
-      "matches": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
-      "js": [
-        "src/instagramDownloader.js",
-        "src/twitterDownloader.js",
-        "src/main.js"
-      ]
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["src/instagramDownloader.js"]
+    },
+    {
+      "run_at": "document_start",
+      "matches": ["*://*.twitter.com/*"],
+      "js": ["src/twitterInject.js"]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["src/main.js"],
+      "resources": ["src/twitterDownloader.js"],
       "matches": ["*://*.twitter.com/*"]
     }
   ]
