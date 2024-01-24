@@ -2,8 +2,6 @@ const BASE_URL = "https://www.instagram.com";
 const QUERY_HASH_MD5 = "9f8827793ef34641b2fb195d4d41151c";
 
 async function download_by_url(url, extension) {
-  debugger;
-
   const newLink = `https://cut-audio-from-video.com?url=${encodeURIComponent(
     url
   )}`;
@@ -50,7 +48,7 @@ async function get_info(post_id) {
 
 function download_button_constructor(parent) {
   const newEl = document.createElement("div");
-  newEl.innerText = "Cut-audio-from-video.com";
+  //   newEl.innerText = "Cut-audio-from-video.com";
 
   newEl.style.background = "#404040";
   newEl.style.color = "#feb244";
@@ -59,13 +57,22 @@ function download_button_constructor(parent) {
   newEl.style.height = "fit-content";
   newEl.style.borderRadius = "15px";
   newEl.style.cursor = "pointer";
+  newEl.style.display = "flex";
+  newEl.style.alignItems = "center";
+
   parent.position = "relative";
   newEl.style.position = "absolute";
   newEl.style.top = 0;
   newEl.style.left = 0;
   newEl.className = "download_button";
-
   parent.prepend(newEl);
+
+  const image = document.createElement("img");
+  image.src =
+    "https://www.cut-audio-from-video.com/imgs/chitulaLogodf5a0280963d444acef2..svg";
+  image.width = 24;
+  image.height = 24;
+  newEl.prepend(image);
 
   return newEl;
 }
@@ -76,6 +83,7 @@ async function post_video(node) {
 
   const videoEl = node.querySelector("video.x1lliihq.x5yr21d.xh8yej3");
   if (!videoEl) return;
+
   const parent = videoEl.parentNode;
 
   const newEl = download_button_constructor(parent);
@@ -90,7 +98,7 @@ async function post_video(node) {
           .parentNode.parentNode.parentNode.parentNode.parentNode;
       if (box.tagName === "ARTICLE") {
         const linkEl =
-          box.childNodes[0].childNodes[0].childNodes[0].childNodes[1]
+          box?.childNodes[0].childNodes[0].childNodes[0].childNodes[1]
             .childNodes[0].childNodes[0].childNodes[1].childNodes[1]
             .childNodes[0];
         if (linkEl.tagName === "A") {

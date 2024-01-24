@@ -13,9 +13,6 @@ const downloadVideo = function (url, name) {
       //element.setAttribute("download", `${name}.mp4`);
       element.setAttribute("href", newLink);
       element.click();
-
-      console.log("Open link222: ");
-
       // window.URL.revokeObjectURL(element.href);
       // document.body.removeChild(element);
     });
@@ -185,7 +182,6 @@ const parseRequest = function (response) {
 };
 
 function twitterDownloaderMain() {
-  console.log("twitterDownloader Main!!");
   const videoList = [];
 
   onRequestDone(function (response) {
@@ -263,7 +259,6 @@ function twitterDownloaderMain() {
             );
           });
         for (const video of mixedVideos) {
-          console.log("--+++++++- Video from!!!!: ", video.video, video);
           await downloadVideo(video.video, video.text);
         }
         // this.classList.remove("loading");

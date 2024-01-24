@@ -1,7 +1,7 @@
 {
   "name": "Cut-audio-from-video extension",
   "manifest_version": 3,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Send videos to cut-audio-from-video.com",
   "host_permissions": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
   "icons": {
