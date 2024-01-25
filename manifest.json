@@ -1,9 +1,8 @@
 {
-  "name": "Cut-audio-from-video extension",
+  "name": "Cut-audio-from-video (Twitter and Instagram)",
   "manifest_version": 3,
-  "version": "0.0.5",
-  "description": "Send videos to cut-audio-from-video.com",
-  "host_permissions": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
+  "version": "1.0.0",
+  "description": "Send Twitter & Instagram videos for instant audio extraction! Click, select, download MP3. Elevate your content effortlessly.",
   "icons": {
     "16": "assets/chitulaPng.png",
     "32": "assets/chitulaPng.png",
@@ -14,6 +13,7 @@
     "default_icon": "assets/chitulaPng.png"
   },
   "permissions": ["tabs", "webNavigation", "webRequest"],
+  "host_permissions": ["https://www.instagram.com/*", "*://*.twitter.com/*"],
   "content_scripts": [
     {
       "matches": ["https://www.instagram.com/*"],

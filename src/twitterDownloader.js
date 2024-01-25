@@ -1,4 +1,4 @@
-const downloadVideo = function (url, name) {
+const openVideoLink = function (url, name) {
   return fetch(url)
     .then(function (response) {
       return response.blob();
@@ -10,7 +10,6 @@ const downloadVideo = function (url, name) {
       document.body.appendChild(element);
       element.href = window.URL.createObjectURL(response);
       element.setAttribute("target", "_blank");
-      //element.setAttribute("download", `${name}.mp4`);
       element.setAttribute("href", newLink);
       element.click();
       // window.URL.revokeObjectURL(element.href);
@@ -245,7 +244,6 @@ function twitterDownloaderMain() {
       $button.addEventListener("click", async function (event) {
         event.preventDefault();
         this.disabled = true;
-        // this.classList.add("loading");
         const mixedVideos = videoList
           .filter(function (v) {
             return v.entityId === findVideo.entityId;
@@ -259,10 +257,8 @@ function twitterDownloaderMain() {
             );
           });
         for (const video of mixedVideos) {
-          await downloadVideo(video.video, video.text);
+          await openVideoLink(video.video, video.text);
         }
-        // this.classList.remove("loading");
-        // this.classList.add("success");
       });
     }
   });
