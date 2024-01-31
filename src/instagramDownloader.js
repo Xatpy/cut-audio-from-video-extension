@@ -53,7 +53,8 @@ function download_button_constructor(parent) {
   newEl.style.background = "#404040";
   newEl.style.color = "#feb244";
   newEl.style.zIndex = 100;
-  newEl.style.padding = "1rem";
+  newEl.style.padding = "0.5rem";
+  newEl.style.margin = "1rem";
   newEl.style.height = "fit-content";
   newEl.style.borderRadius = "15px";
   newEl.style.cursor = "pointer";
@@ -68,8 +69,7 @@ function download_button_constructor(parent) {
   parent.prepend(newEl);
 
   const image = document.createElement("img");
-  image.src =
-    "https://www.cut-audio-from-video.com/imgs/chitulaLogodf5a0280963d444acef2..svg";
+  image.src = "https://www.cut-audio-from-video.com/imgs/chitulaLogoYellow.svg";
   image.width = 24;
   image.height = 24;
   newEl.prepend(image);
